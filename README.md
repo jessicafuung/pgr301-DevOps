@@ -281,6 +281,8 @@ Beskriv med egne ord;
 * Å release kode ofte kan også by på utfordringer. Beskriv hvilke- og hvordan vi kan bruke DevOps prinsipper til å redusere
   eller fjerne risiko ved hyppige leveraner.
 
+---
+
 ## Del 2 - CI
 
 Konsulentene som har jobbet med innføring av DevOps har startet på en GitHub actions workflow for kontinuerlig
@@ -312,7 +314,7 @@ at
 * [x] Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning
 * Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
 
-###Svar:
+### Svar:
 Branch protection kan ikke konfigureres når repositoryen er satt som private. 
 
 1. Fork repositoryen
@@ -331,7 +333,7 @@ Peer review:
 4. Under "require a pull request before passing", og deretter kryss av "require approvals".
 
 
-
+---
 
 ## Del 3 - Docker
 
