@@ -299,9 +299,9 @@ ha et valg som heter "Run workflow"
 
 Det er andre utfordringer med denne flyten også; Workflowen kjører "ok" selv om det åpenbart er unit-testfeil i koden. 
 
-* Få først ```ci.yml```workflow til å feile fordi enhetstesten feiler. 
-* Rett deretter enhetstesten og se at pipeline kjører "ok".  
-* Workflowen skal kompilere javakoden og kjøre enhetstester på hver eneste push, *uavhengig av branch* 
+* [x] Få først ```ci.yml```workflow til å feile fordi enhetstesten feiler. 
+* [x] Rett deretter enhetstesten og se at pipeline kjører "ok".  
+* [x] Workflowen skal kompilere javakoden og kjøre enhetstester på hver eneste push, *uavhengig av branch* 
 
 ### Oppgave 3 
 
@@ -311,6 +311,27 @@ at
 * Ingen kan pushe kode direkte på main branch
 * Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning
 * Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
+
+###Svar:
+Branch protection kan ikke konfigureres når repositoryen er satt som private. 
+
+1. Fork repositoryen
+2. Gå til "settings -> branches", og deretter "protection rules".
+3. Klikk "add", og deretter velg "main" som branch.
+4. Velg "require a pull request before merging".
+5. Velg "require status check to pass before merging".
+6. I søkefeltet skriv inn teksten "build" som skal la deg velge "github actions".
+ 
+Nå skal det ikke være mulig å merge en pull request inn i "main"-branch uten at status er i orden. Ingen i teamet kan heller "snike" seg unna med denne sjekken ved å committe kode rett på main branch.
+
+Peer review:
+1. Gå til "settings -> branches, og deretter "protection rules".
+2. Klikk "main" branch.
+3. Velg "edit" for eksisterende branch protection rule.
+4. Under "require a pull request before passing", og deretter kryss av "require approvals".
+
+
+
 
 ## Del 3 - Docker
 
