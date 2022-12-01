@@ -293,7 +293,7 @@ ha et valg som heter "Run workflow"
 
 ### Oppgave 1 
 
-* Start med å få workflowen til å kjøre når det lages en pull request, og på hver push til main branch
+* [x] Start med å få workflowen til å kjøre når det lages en pull request, og på hver push til main branch
 
 ### Oppgave 2 
 
