@@ -2,6 +2,7 @@
 *.class
 
 # Log file
+
 *.log
 
 # BlueJ files
@@ -23,3 +24,5 @@
 hs_err_pid*
 
 *.DS_Store
+*.target
+target/
