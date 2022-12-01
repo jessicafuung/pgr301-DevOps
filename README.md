@@ -1,4 +1,4 @@
-# DevOps med gode intensjoner
+# DevOps med gode intensjoner - Gikk dette?
 
 ## Krav til leveransen
 
