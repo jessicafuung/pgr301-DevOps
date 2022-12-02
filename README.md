@@ -315,14 +315,14 @@ at
 * Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
 
 ### Svar:
-Branch protection kan ikke konfigureres når repositoryen er satt som private. 
+NB! Branch protection kan ikke konfigureres når repositoryen er satt som private. 
 
-1. Fork repositoryen
-2. Gå til "settings -> branches", og deretter "protection rules".
-3. Klikk "add", og deretter velg "main" som branch.
-4. Velg "require a pull request before merging".
-5. Velg "require status check to pass before merging".
-6. I søkefeltet skriv inn teksten "build" som skal la deg velge "github actions".
+Fremgangsmåte:
+1. Gå til "settings -> branches", og deretter "protection rules".
+2. Klikk "add", og deretter velg "main" som branch.
+3. Velg "require a pull request before merging".
+4. Velg "require status check to pass before merging".
+5. I søkefeltet skriv inn teksten "build" som skal la deg velge "github actions".
  
 Nå skal det ikke være mulig å merge en pull request inn i "main"-branch uten at status er i orden. Ingen i teamet kan heller "snike" seg unna med denne sjekken ved å committe kode rett på main branch.
 
@@ -346,17 +346,15 @@ Det ligger en ```Dockerfile``` i prosjektet, og en workflow fil som heter ```doc
 Beskriv hva du må gjøre for å få workflow til å fungere med din DockerHub konto? Hvorfor feiler workflowen? 
 
 **Svar:**
+Feilmeldingen i Actions forteller at brukernavn og passord mangler. 
 I "docker.yml" står det at den bruker secrets for å logge inn på DockerHub. 
+
+Legg inn credentials slik:
 1. Settings -> Secrets -> Actions
 2. Klikk "New repository secret" -> Fyll inn "DOCKER_HUB_USERNAME" og brukernavnet mitt til DockerHub.
 3. Klikk "New repository secret" -> Fyll inn "DOCKER_HUB_TOKEN" og passordet mitt til DockerHub.
 
-Push til main, og et container image skal pushes til DockerHub. 
-
-1. Sjekket "dockerfile" og ser at den er ufullstendig. Endrer på innholdet slik vi har lært i øvingstimen.
-2. Builder et docker image med navnet "shopifly". 
-* ikke laget container, siden spring boot applikasjonen må bygges i denne containeren. Den bruker deretter resultatet fra byggeprosessen (JAR filen) til å lage en runtime container for applikasjonen.
-* * Dockerfile er ikke fullstendig. 
+Push til main, og et container image skal nå kunne pushes til DockerHub. 
 
 ### Oppgave 2
 
@@ -390,6 +388,13 @@ Vi kan få bedre kontroll på byggeprosessen ved også å gjøre maven bygget i 
 
 * Skriv om Dockerfilen. til bruke en *Multi Stage Build*. 
 * Du må også rydde opp i ```docker.yml``` workflow filen... Fjern ønødvendige "steps".
+* 
+
+NOTAT:
+1. Sjekket "dockerfile" og ser at den er ufullstendig. Endrer på innholdet slik vi har lært i øvingstimen.
+2. Builder et docker image med navnet "shopifly". 
+* ikke laget container, siden spring boot applikasjonen må bygges i denne containeren. Den bruker deretter resultatet fra byggeprosessen (JAR filen) til å lage en runtime container for applikasjonen.
+* * Dockerfile er ikke fullstendig. 
 
 ### Oppave 3
 
