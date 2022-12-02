@@ -345,6 +345,19 @@ Det ligger en ```Dockerfile``` i prosjektet, og en workflow fil som heter ```doc
 
 Beskriv hva du må gjøre for å få workflow til å fungere med din DockerHub konto? Hvorfor feiler workflowen? 
 
+**Svar:**
+I "docker.yml" står det at den bruker secrets for å logge inn på DockerHub. 
+1. Settings -> Secrets -> Actions
+2. Klikk "New repository secret" -> Fyll inn "DOCKER_HUB_USERNAME" og brukernavnet mitt til DockerHub.
+3. Klikk "New repository secret" -> Fyll inn "DOCKER_HUB_TOKEN" og passordet mitt til DockerHub.
+
+Push til main, og et container image skal pushes til DockerHub. 
+
+1. Sjekket "dockerfile" og ser at den er ufullstendig. Endrer på innholdet slik vi har lært i øvingstimen.
+2. Builder et docker image med navnet "shopifly". 
+* ikke laget container, siden spring boot applikasjonen må bygges i denne containeren. Den bruker deretter resultatet fra byggeprosessen (JAR filen) til å lage en runtime container for applikasjonen.
+* * Dockerfile er ikke fullstendig. 
+
 ### Oppgave 2
 
 Når du har fikset problemet i oppgave 1, og du forøker å kjøre applikasjonen fra Docker hub med for eksempel; 
