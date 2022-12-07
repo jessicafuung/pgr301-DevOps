@@ -403,7 +403,7 @@ Et privat ECR repository i AWS er en bedre løsning.
 
 * [x] Lag dit eget ECR repository med kandidatnummer som navn, enten ved hjelp av UI - eller ved hjelp av CLI.
 * [x] Endre ```docker.yml```, workflow til å pushe docker container til Amazon ECR, istedet for docker hub
-* [ ] Beskriv deretter med egne ord hva sensor må gjøre for å få sin fork til å laste opp container image til sitt eget ECR repo.
+* [x] Beskriv deretter med egne ord hva sensor må gjøre for å få sin fork til å laste opp container image til sitt eget ECR repo.
 
 SVAR: 
 1. Sett opp et eget ECR repository på AWS
@@ -412,9 +412,9 @@ SVAR:
 4. Klikk "security credentials" -> "create access key"
 5. Bruk deretter de genererte secrets til å legge inn repository secrets, for å gi Github Actions nøkler.
 6. I docker.yml filen tar vi bort workflowen som ble satt opp for å koble til DockerHub
-7. Setter inn ny workflow som kobler til ECR repositoryen. 
+7. Setter inn ny workflow som kobler til ECR repositoryen (Se .github/workflows/docker.yml).
 
-* [ ] Docker workflow skal pushe et container image med en tag som er lik GitHub commit hash (id); for eksempel ```244530008913.dkr.ecr.eu-west-1.amazonaws.com/glenn_exam_practice:8234efc```
+* [x] Docker workflow skal pushe et container image med en tag som er lik GitHub commit hash (id); for eksempel ```244530008913.dkr.ecr.eu-west-1.amazonaws.com/glenn_exam_practice:8234efc```
 
 ## Del 4 - Metrics, overvåkning og alarmer
 
