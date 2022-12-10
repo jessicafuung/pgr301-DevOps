@@ -2,9 +2,7 @@
 
 ## Krav til leveransen
 
-* Eksamensoppgaven er gitt på GitHub repository ; https://github.com/PGR301-2022/eksamen_2022
-* Du skal ikke lage en fork av dette repositoryet, men kopiere innholdet til et nytt. Årsaken er at sensor vil lage en fork av ditt repo, og arbeidsflyten blir lettere hvis ditt repo ikke er en fork. 
-* Du kan jobbe i et public-, eller privat repo, og deretter gjøre det public noen timer etter innleveringsfrist hvis du er bekymret for plagiat fra medstudenter.
+* [ ] Du kan jobbe i et public-, eller privat repo, og deretter gjøre det public noen timer etter innleveringsfrist hvis du er bekymret for plagiat fra medstudenter.
 
 Når sensor evaluerer oppgaven vil han/hun se på
 
@@ -15,18 +13,6 @@ Når sensor evaluerer oppgaven vil han/hun se på
 
 Ved innlevering via WiseFlow, lager du et *tekstdokument* som kun inneholder link til dit repository
 
-## Litt om GitHub free tier
-
-* I oppgaven blir du bedt om å lage GitHub actions workflows.
-* Med GitHub "Free tier" har du 2,000 minutter med gratis byggetid per måned, dersom du bruker et privat repo.
-* Dersom dere i en ekstrem situasjon skulle trenge mer byggetid, kan dere gjøre repository public. Da er byggetiden ubegrenset.
-* Hvis dere da er bekymret for at andre skal kopiere arbeidet deres, kan dere lage en ny GitHub bruker med et tilfeldig navn.
-
-OBS!
-
-* I "Free" planen til GitHub er "branch protection" ikke tillat når et repository er privat. Det vil si at dere ikke kan konfigurere GitHub til å hindre push mot for eksempel _main_ branch direkte, eller konfigurere regler for godkjenning før merge av pull request osv.
-* I denne oppgaven blir dere bedt om å beskrive _hvordan_ dette kan gjøres, men dere trenger altså ikke konfigurere dette for repoet dere leverer.
-
 ## Evaluering
 
 * [ ] Del 1 DevOps-prinsipper - 20 poeng
@@ -36,12 +22,6 @@ OBS!
 * [ ] Del 5 Del - Terraform og CloudWatch Dashboards - 20 poeng
 
 ## Utvikling i Cloud 9
-
-Dere kan bruke et utviklingsmiljø i Cloud 9. https://244530008913.signin.aws.amazon.com/console - logg på med studentnavn.
-Cloud9 miljøene er ble laget på nytt i løpet av helgen før eksamen starter, passord er det "vanlige"
-
-* Siden Cloud 9 miljøet blir laget på nytt før eksamen; må du installere Maven, sette opp "credential helper" osv. Se på en av øvingene vi har gjort i semesteret. 
-
 Hvis dere får følgende feilmelding når dere bygger koden med maven i Cloud9, må dere bare gjøre en "mvn clean"
 
 ```text
@@ -281,30 +261,7 @@ Beskriv med egne ord;
 * Å release kode ofte kan også by på utfordringer. Beskriv hvilke- og hvordan vi kan bruke DevOps prinsipper til å redusere
   eller fjerne risiko ved hyppige leveraner.
 
----
-
 ## Del 2 - CI
-
-Konsulentene som har jobbet med innføring av DevOps har startet på en GitHub actions workflow for kontinuerlig
-integrasjon. GitHub actions workflow (yml) filen ligger i dette repositoryet og heter ````ci.yml````
-
-Problemet er at utviklingsteamet må starte jobben manuelt fra GitHub actions brukergrensesnittet. Det er jo ikke bra!
-
-Du kan gjerne teste dette selv ved å gå til "Actions" i ditt repository, du vil se teksten "This workflow has a workflow_dispatch event trigger." Og vil
-ha et valg som heter "Run workflow"
-
-### Oppgave 1 
-
-* [x] Start med å få workflowen til å kjøre når det lages en pull request, og på hver push til main branch
-
-### Oppgave 2 
-
-Det er andre utfordringer med denne flyten også; Workflowen kjører "ok" selv om det åpenbart er unit-testfeil i koden. 
-
-* [x] Få først ```ci.yml```workflow til å feile fordi enhetstesten feiler. 
-* [x] Rett deretter enhetstesten og se at pipeline kjører "ok".  
-* [x] Workflowen skal kompilere javakoden og kjøre enhetstester på hver eneste push, *uavhengig av branch* 
-
 ### Oppgave 3 
 
 Branch protection og status sjekker - Beskriv hva sensor må gjøre for å konfigurere sin fork på en slik måte
@@ -317,7 +274,7 @@ at
 ### Svar:
 NB! Branch protection kan ikke konfigureres når repositoryen er satt som private. 
 
-Fremgangsmåte:
+**Fremgangsmåte:**
 1. Gå til "settings -> branches", og deretter "protection rules".
 2. Klikk "add", og deretter velg "main" som branch.
 3. Velg "require a pull request before merging".
@@ -326,7 +283,7 @@ Fremgangsmåte:
  
 Nå skal det ikke være mulig å merge en pull request inn i "main"-branch uten at status er i orden. Ingen i teamet kan heller "snike" seg unna med denne sjekken ved å committe kode rett på main branch.
 
-Peer review:
+**Peer review:**
 1. Gå til "settings -> branches, og deretter "protection rules".
 2. Klikk "main" branch.
 3. Velg "edit" for eksisterende branch protection rule.
@@ -335,11 +292,6 @@ Peer review:
 ---
 
 ## Del 3 - Docker
-
-Applikasjonen er laget for å pushe et container image til Docker Hub. 
-
-Det ligger en ```Dockerfile``` i prosjektet, og en workflow fil som heter ```docker.yml``` .
-
 ### Oppgave 1
 
 Beskriv hva du må gjøre for å få workflow til å fungere med din DockerHub konto? Hvorfor feiler workflowen? 
@@ -356,54 +308,12 @@ Legg inn credentials slik:
 Push til main, og et container image skal nå kunne pushes til DockerHub. 
 
 ### Oppgave 2
-
-Når du har fikset problemet i oppgave 1, og du forøker å kjøre applikasjonen fra Docker hub med for eksempel; 
-```docker run <dockerhub brukeravn>/shopifly```
-
-Får du en feilmelding 
-```text
-Exception in thread "main" java.lang.UnsupportedClassVersionError: no/shoppifly/CddemoApplication has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-        at java.lang.ClassLoader.defineClass1(Native Method)
-        at java.lang.ClassLoader.defineClass(ClassLoader.java:756)
-        at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
-        at java.net.URLClassLoader.defineClass(URLClassLoader.java:473)
-        at java.net.URLClassLoader.access$100(URLClassLoader.java:74)
-        at java.net.URLClassLoader$1.run(URLClassLoader.java:369)
-        at java.net.URLClassLoader$1.run(URLClassLoader.java:363)
-```
-
-De annsatte i Gaffel consulting tenkte at Maven-bygget kunne kjøres i GitHub Actions, med  ```mvn ...```, og at JAR filen kunne kopieres inn i Container Image docker under bygging.  
-
-Men så bestemte en av utviklerene seg for å oppgradere Javaversjonen i pom.xml, og workflow filen, til Java 11. 
-Alt stoppet å fungere! Som dere ser av Dockerfilen, kjører Spring boot på Java 8...
-
-```
-FROM adoptopenjdk/openjdk8
-```
-
-Konsulentene ga opp, og hoppet som vanlig over på en annen oppgave. Så for øyeblikket har ikke Shopifly en fungerende applikasjon. 
-
-Vi kan få bedre kontroll på byggeprosessen ved også å gjøre maven bygget i en container. For å unngå lignende problemer i fremtiden ønsker vi derfor å bruke Docker til kompilere- og bygge koden.
-
-* [x] Skriv om Dockerfilen. til bruke en *Multi Stage Build*. 
 * [ ] Du må også rydde opp i ```docker.yml``` workflow filen... Fjern ønødvendige "steps".
 
-NOTAT:
-1. Sjekket "dockerfile" og ser at den er ufullstendig. Endrer på innholdet slik vi har lært i øvingstimen.
-2. Builder et docker image med navnet "shopifly". 
-* ikke laget container, siden spring boot applikasjonen må bygges i denne containeren. Den bruker deretter resultatet fra byggeprosessen (JAR filen) til å lage en runtime container for applikasjonen.
-* * Dockerfile er ikke fullstendig. 
-
 ### Oppave 3
-
-Gaffel consulting var ikke klar over at det var en dårlig idè å ha sitt container image i et offentlig Docker hub repository - og Shopifly har allerede sett at flere hundre har lastet ned deres container image.
-Et privat ECR repository i AWS er en bedre løsning.
-
-* [x] Lag dit eget ECR repository med kandidatnummer som navn, enten ved hjelp av UI - eller ved hjelp av CLI.
-* [x] Endre ```docker.yml```, workflow til å pushe docker container til Amazon ECR, istedet for docker hub
 * [x] Beskriv deretter med egne ord hva sensor må gjøre for å få sin fork til å laste opp container image til sitt eget ECR repo.
 
-SVAR: 
+**SVAR:** 
 1. Sett opp et eget ECR repository på AWS
 2. Gå inn på IAM via AWS
 3. Gå inn på "users" og søk på brukernavnet ditt
@@ -412,31 +322,15 @@ SVAR:
 6. I docker.yml filen tar vi bort workflowen som ble satt opp for å koble til DockerHub
 7. Setter inn ny workflow som kobler til ECR repositoryen (Se .github/workflows/docker.yml).
 
-* [x] Docker workflow skal pushe et container image med en tag som er lik GitHub commit hash (id); for eksempel ```244530008913.dkr.ecr.eu-west-1.amazonaws.com/glenn_exam_practice:8234efc```
-
 ## Del 4 - Metrics, overvåkning og alarmer
-
-Cloud9 er ikke verdens beste IDE. Det anbefales å gjøre den følgende oppgaven på lokal PC. Husk å kjøre  
-```aws configure``` 
-;-) 
-
-### Oppgave 1
-
-* [x] Gjør nødvendige endringer i ```pom.xml``` - og koden, slik at applikasjonen kan levere Metrics til CloudWatch ved hjelp av Spring Boot Micrometer.
-Konfigurer applikasjonen til å bruke ditt eget ClodWatch Metrics Namespace - ditt Kandidatnummer. 
-
-* [x] *OBS!* Når dere innfører Micrometer i koden deres, vil enhetstesten slutte å fungere. Dere får lov til å slette 
-enhetstesten når dere starter å jobbe med denne oppgaven. I "virkeligheten" ville vi brukt et rammeverk som feks Mockito  
-til å "mocke" micrometer fra enhetstestene, men det er ikke ønskelig at dere skal bruke tid på dette under eksamen!
-
 ### Oppgave 2 
 
 Endre Javakoden slik at den rapporterer følgende Metrics til CloudWatch
 
-* "carts" -  Antall handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget.  
-* "cartsvalue" - Total sum med penger i handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget.
-* "checkouts" - Totalt antall  handlevogner er blitt sjekket ut
-* "checkout_latency" - Gjennomsnittlig responstid for Checkout metoden i Controller-klassen.
+* [ ] "carts" -  Antall handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget.  
+* [ ] "cartsvalue" - Total sum med penger i handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget.
+* [ ] "checkouts" - Totalt antall  handlevogner er blitt sjekket ut
+* [ ] "checkout_latency" - Gjennomsnittlig responstid for Checkout metoden i Controller-klassen.
 
 ## Del 5 - Terraform og CloudWatch Dashboards
 
