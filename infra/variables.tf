@@ -1,6 +1,6 @@
 variable "candidate_id" {
-  type = string
   default = "1044"
+  type = string
 }
 
 variable "candidate_email"  {

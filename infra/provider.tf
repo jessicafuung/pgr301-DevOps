@@ -5,9 +5,10 @@ terraform {
       version = "4.33.0"
     }
   }
+  
   backend "s3" {
-    bucket = "analytics-${var.candidate_id}"
-    key    = "1044/terraform-in-pipeline.state"
+    bucket = "analytics-1044"
+    key    = "1044/shopifly.state"
     region = "eu-west-1"
   }
 }
