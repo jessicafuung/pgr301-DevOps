@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "pgr301-2021-terraform-state"
+    bucket = "analytics-${var.candidate_id}"
     key    = "1044/terraform-in-pipeline.state"
     region = "eu-west-1"
   }
