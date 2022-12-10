@@ -6,8 +6,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "pgr301-2022-terraform-state"
-    key    = "1044/shopifly.state"
-    region = "eu-north-1"
+    bucket = "pgr301-2021-terraform-state"
+    key    = "1044/terraform-in-pipeline.state"
+    region = "eu-west-1"
   }
 }
