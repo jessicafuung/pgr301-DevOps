@@ -29,11 +29,11 @@ OBS!
 
 ## Evaluering
 
-* Del 1 DevOps-prinsipper - 20 poeng
-* Del 2 CI - 20 poeng
-* Del 3 Docker - 20 poeng
-* Del 4 Del - Metrics med Micrometer 20 poeng
-* Del 5 Del - Terraform og CloudWatch Dashboards - 20 poeng
+* [ ] Del 1 DevOps-prinsipper - 20 poeng
+* [ ] Del 2 CI - 20 poeng
+* [ ] Del 3 Docker - 20 poeng
+* [ ] Del 4 Del - Metrics med Micrometer 20 poeng
+* [ ] Del 5 Del - Terraform og CloudWatch Dashboards - 20 poeng
 
 ## Utvikling i Cloud 9
 
@@ -312,7 +312,7 @@ at
 
 * [x] Ingen kan pushe kode direkte på main branch
 * [x] Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning
-* Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
+* [ ] Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
 
 ### Svar:
 NB! Branch protection kan ikke konfigureres når repositoryen er satt som private. 
@@ -331,7 +331,6 @@ Peer review:
 2. Klikk "main" branch.
 3. Velg "edit" for eksisterende branch protection rule.
 4. Under "require a pull request before passing", og deretter kryss av "require approvals".
-
 
 ---
 
@@ -386,9 +385,8 @@ Konsulentene ga opp, og hoppet som vanlig over på en annen oppgave. Så for øy
 
 Vi kan få bedre kontroll på byggeprosessen ved også å gjøre maven bygget i en container. For å unngå lignende problemer i fremtiden ønsker vi derfor å bruke Docker til kompilere- og bygge koden.
 
-* Skriv om Dockerfilen. til bruke en *Multi Stage Build*. 
-* Du må også rydde opp i ```docker.yml``` workflow filen... Fjern ønødvendige "steps".
-* 
+* [x] Skriv om Dockerfilen. til bruke en *Multi Stage Build*. 
+* [ ] Du må også rydde opp i ```docker.yml``` workflow filen... Fjern ønødvendige "steps".
 
 NOTAT:
 1. Sjekket "dockerfile" og ser at den er ufullstendig. Endrer på innholdet slik vi har lært i øvingstimen.
@@ -424,10 +422,10 @@ Cloud9 er ikke verdens beste IDE. Det anbefales å gjøre den følgende oppgaven
 
 ### Oppgave 1
 
-Gjør nødvendige endringer i ```pom.xml``` - og koden, slik at applikasjonen kan levere Metrics til CloudWatch ved hjelp av Spring Boot Micrometer.
+* [x] Gjør nødvendige endringer i ```pom.xml``` - og koden, slik at applikasjonen kan levere Metrics til CloudWatch ved hjelp av Spring Boot Micrometer.
 Konfigurer applikasjonen til å bruke ditt eget ClodWatch Metrics Namespace - ditt Kandidatnummer. 
 
-*OBS!* Når dere innfører Micrometer i koden deres, vil enhetstesten slutte å fungere. Dere får lov til å slette 
+* [x] *OBS!* Når dere innfører Micrometer i koden deres, vil enhetstesten slutte å fungere. Dere får lov til å slette 
 enhetstesten når dere starter å jobbe med denne oppgaven. I "virkeligheten" ville vi brukt et rammeverk som feks Mockito  
 til å "mocke" micrometer fra enhetstestene, men det er ikke ønskelig at dere skal bruke tid på dette under eksamen!
 
@@ -483,4 +481,4 @@ Lag Terraform-kode som oppretter
 
 * En CloudWatch Alarm  som løses ut dersom antall handlekurver over tre repeternde perioder,på fem minutter, overstiger verdien 5
 * Alarmen skal sendes som e-post til en addresse som gis i workflow filen ```cloudwatch_dashboard.yml``` 
-# pgr301-DevOps
+
