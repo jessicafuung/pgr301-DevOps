@@ -16,11 +16,10 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     private final MeterRegistry meterRegistry;
     private final Map<String, Cart> shoppingCarts = new HashMap<>();
-    private final Counter checkoutCounter;
+    private double counter = 0;
 
     NaiveCartImpl(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
-        this.checkoutCounter = meterRegistry.counter("checkouts");
     }
 
     @Override
@@ -39,8 +38,8 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     @Override
     public String checkout(Cart cart) {
-        checkoutCounter.increment();
-        //meterRegistry.counter("checkouts").increment();
+        meterRegistry.counter("checkouts").increment(counter);
+        counter++;
         shoppingCarts.remove(cart.getId());
         return UUID.randomUUID().toString();
     }
