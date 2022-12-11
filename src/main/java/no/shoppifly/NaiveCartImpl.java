@@ -38,7 +38,7 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     @Override
     public String checkout(Cart cart) {
-        meterRegistry.counter("checkouts").increment(counter);
+        //meterRegistry.counter("checkouts").increment(counter);
         counter++;
         shoppingCarts.remove(cart.getId());
         return UUID.randomUUID().toString();
@@ -61,7 +61,7 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
                     return total;
                 }).register(meterRegistry);
 
-        Gauge.builder("checkouts", counter, b -> b.doubleValue())
+        Gauge.builder("checkouts_count", counter, b -> b.doubleValue())
                 .register(meterRegistry);
     }
 }
