@@ -365,7 +365,7 @@ Et annet problem er at "terraform apply" bare blir kjørt hver gang noen lager e
 noen gjør en push mot main branch. 
 
 * [x] Fullfør workflow filen ```cloudwatch_dashboard.yml``` filen slik at apply bare bli kjørt på push mot main branch, 
-* [ ] terraform plan på når det lages en Pull request 
+* [x] terraform plan på når det lages en Pull request 
 
 ### Oppgave 3
 
