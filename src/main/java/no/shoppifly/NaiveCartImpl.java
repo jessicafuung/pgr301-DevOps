@@ -60,5 +60,8 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
                         .reduce(0f, Float::sum);
                     return total;
                 }).register(meterRegistry);
+
+        Gauge.builder("checkouts", counter, b -> b.doubleValue())
+                .register(meterRegistry);
     }
 }
