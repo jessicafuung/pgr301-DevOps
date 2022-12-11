@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.LongAdder;
 
 @Component
@@ -15,6 +16,7 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
     private final MeterRegistry meterRegistry;
     private final Map<String, Cart> shoppingCarts = new HashMap<>();
     private LongAdder counter = new LongAdder();
+    private AtomicInteger counter2 = new AtomicInteger();
 
     NaiveCartImpl(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
@@ -36,7 +38,8 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     @Override
     public String checkout(Cart cart) {
-        counter.increment();
+        //counter.increment();
+        counter2.incrementAndGet();
         shoppingCarts.remove(cart.getId());
         return UUID.randomUUID().toString();
     }
@@ -58,7 +61,7 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
                     return total;
                 }).register(meterRegistry);
 
-        Gauge.builder("checkouts", counter, b -> b.longValue())
+        Gauge.builder("checkouts", counter2, b -> b.longValue())
                 .register(meterRegistry);
     }
 }
