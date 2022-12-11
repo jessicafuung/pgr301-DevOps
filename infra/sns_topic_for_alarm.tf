@@ -1,5 +1,5 @@
 resource "aws_sns_topic" "alarms" {
-  alarm_name = "alarm-topic-${var.candidate_id}"
+  name = "alarm-topic-${var.candidate_id}"
   namespace = "1044"
   metric_name = "carts_count"
 
