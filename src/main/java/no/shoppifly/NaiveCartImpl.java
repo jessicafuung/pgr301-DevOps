@@ -7,13 +7,14 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+import java.util.concurrent.atomic.DoubleAdder;
 
 @Component
 class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReadyEvent> {
 
     private final MeterRegistry meterRegistry;
     private final Map<String, Cart> shoppingCarts = new HashMap<>();
-    private double counter = 0.0;
+    private DoubleAdder counter = new DoubleAdder();
 
     NaiveCartImpl(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
@@ -35,9 +36,7 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     @Override
     public String checkout(Cart cart) {
-        //meterRegistry.counter("checkouts").increment(counter);
-        //meterRegistry.counter("checkouts").increment(counter);
-        counter++;
+        counter.add(1);
         shoppingCarts.remove(cart.getId());
         return UUID.randomUUID().toString();
     }
