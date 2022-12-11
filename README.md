@@ -33,12 +33,12 @@ Beskriv med egne ord;
 * Å release kode ofte kan også by på utfordringer. Beskriv hvilke- og hvordan vi kan bruke DevOps prinsipper til å redusere
   eller fjerne risiko ved hyppige leveraner.
 
-## Del 2: CI, oppgave 3
-*Oppgave:* 
-*Branch protection og status sjekker - Beskriv hva sensor må gjøre for å konfigurere sin fork på en slik måte at:*
-* [x] *Ingen kan pushe kode direkte på main branch*
-* [x] *Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning*
-* [ ] *Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.*
+## Del 2: CI, 
+### Oppgave 3
+*Beskriv hva sensor må gjøre for å konfigurere sin fork på en slik måte at:*
+*Ingen kan pushe kode direkte på main branch*
+*Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning*
+*Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.*
 
 **Svar:**\
 PS! Branch protection kan ikke konfigureres når repositoryen er satt som private.
@@ -59,9 +59,6 @@ Peer review:
 4. Under "require a pull request before passing", og deretter kryss av "require approvals".
 
 ## Del 3 - Docker
-### Oppgave 2
-* [ ] Du må også rydde opp i ```docker.yml``` workflow filen... Fjern ønødvendige "steps".
-* 
 ### Oppgave 1
 *Beskriv hva du må gjøre for å få workflow til å fungere med din DockerHub konto? Hvorfor feiler workflowen?*
 **Svar:**\
