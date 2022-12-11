@@ -350,6 +350,7 @@ De kommenterte derfor bare ut S3 bucket koden, og gikk videre til neste oppgave.
 Se på ```provider.tf filen```. 
 
 * [x] Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer? 
+
 **SVAR:** 
 Mest sannsynlig skyldes feilmeldingen av at terraform.tfstate filen har blitt slettet. Denne filen ligger inni en katalog som inneholder terraform provider for AWS, slik at Terraform kan lage, endre og slette infrastrukturen i AWS. 
 Så når man prøver å kjøre apply på nytt, vil Terraform prøve å opprette bucketen på nytt, fordi den ikke lenger vet at den har blitt opprettet - nemlig fordi denne informasjonen ligger i den såkalte "state" filen som har blitt slettet.
