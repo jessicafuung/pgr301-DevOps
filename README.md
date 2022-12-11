@@ -349,10 +349,14 @@ De kommenterte derfor bare ut S3 bucket koden, og gikk videre til neste oppgave.
 
 Se på ```provider.tf filen```. 
 
-* [ ] Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer? 
-  * **SVAR:** Hvis ikke man har “backend” deklarasjonen og kjører terraform, vil terraform state fil lagres lokalt.
-* [ ] Gjør nødvendige Endre slik denne slik at Terraform kan kjøres flere ganger uten å forsøke å opprette ressurser hver gang den kjører.
-* [ ] Fjern kommentarene fra ```databacket.tf``` slik at Terraform-koden  også lager en S3 bucket. 
+* [x] Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer? 
+**SVAR:** 
+Mest sannsynlig skyldes feilmeldingen av at terraform.tfstate filen har blitt slettet. Denne filen ligger inni en katalog som inneholder terraform provider for AWS, slik at Terraform kan lage, endre og slette infrastrukturen i AWS. 
+Så når man prøver å kjøre apply på nytt, vil Terraform prøve å opprette bucketen på nytt, fordi den ikke lenger vet at den har blitt opprettet - nemlig fordi denne informasjonen ligger i den såkalte "state" filen som har blitt slettet.
+Da må man slette bucketen som allerede eksisterer, og fjerne evt terraform.state, hele .terraform katalogen, og alle filer som starter med ```terraform```.
+
+**KOMMENTAR TIL OPPGAVEN:**
+Jeg opplevde at Terraform hadde en "chicken/egg problem". Jeg opprettet e state lokalt først (terraform init, plan og apply). Deretter la jeg inn backend i provideren, og flyttet eksisterende state til s3-bucketen som ble laget. 
 
 ### Oppgave 2
 
