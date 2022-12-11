@@ -264,14 +264,13 @@ Beskriv med egne ord;
 ## Del 2 - CI
 ### Oppgave 3 
 
-Branch protection og status sjekker - Beskriv hva sensor må gjøre for å konfigurere sin fork på en slik måte
-at
+*Branch protection og status sjekker - Beskriv hva sensor må gjøre for å konfigurere sin fork på en slik måte at:*
 
-* [x] Ingen kan pushe kode direkte på main branch
-* [x] Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning
-* [ ] Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
+* [x] *Ingen kan pushe kode direkte på main branch*
+* [x] *Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning*
+* [ ] *Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.*
 
-### Svar:
+**Svar:**
 NB! Branch protection kan ikke konfigureres når repositoryen er satt som private. 
 
 **Fremgangsmåte:**
@@ -294,7 +293,7 @@ Nå skal det ikke være mulig å merge en pull request inn i "main"-branch uten 
 ## Del 3 - Docker
 ### Oppgave 1
 
-Beskriv hva du må gjøre for å få workflow til å fungere med din DockerHub konto? Hvorfor feiler workflowen? 
+*Beskriv hva du må gjøre for å få workflow til å fungere med din DockerHub konto? Hvorfor feiler workflowen?* 
 
 **Svar:**
 Feilmeldingen i Actions forteller at brukernavn og passord mangler. 
@@ -311,7 +310,7 @@ Push til main, og et container image skal nå kunne pushes til DockerHub.
 * [ ] Du må også rydde opp i ```docker.yml``` workflow filen... Fjern ønødvendige "steps".
 
 ### Oppave 3
-* [x] Beskriv deretter med egne ord hva sensor må gjøre for å få sin fork til å laste opp container image til sitt eget ECR repo.
+* [x] *Beskriv deretter med egne ord hva sensor må gjøre for å få sin fork til å laste opp container image til sitt eget ECR repo.*
 
 **SVAR:** 
 1. Sett opp et eget ECR repository på AWS
@@ -349,7 +348,7 @@ De kommenterte derfor bare ut S3 bucket koden, og gikk videre til neste oppgave.
 
 Se på ```provider.tf filen```. 
 
-* [x] Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer? 
+* [x] *DRØFT: Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer?* 
 
 **SVAR:** 
 Mest sannsynlig skyldes feilmeldingen av at terraform.tfstate filen har blitt slettet. Denne filen ligger inni en katalog som inneholder terraform provider for AWS, slik at Terraform kan lage, endre og slette infrastrukturen i AWS. 
