@@ -89,7 +89,8 @@ Push til main, og et container image skal nå kunne pushes til DockerHub.
 ## Del 4 - Metrics, overvåkning og alarmer
 ### Oppgave 2
 Endre Javakoden slik at den rapporterer følgende Metrics til CloudWatch
-* [ ] "carts" -  Antall handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget. (gauge)  
+* [x] "carts" -  Antall handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget. (gauge)  
+  * carts_count.value
 * [ ] "cartsvalue" - Total sum med penger i handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget. (gauge)
 * [ ] "checkouts" - Totalt antall  handlevogner er blitt sjekket ut (counts)
 * [ ] "checkout_latency" - Gjennomsnittlig responstid for Checkout metoden i Controller-klassen.
