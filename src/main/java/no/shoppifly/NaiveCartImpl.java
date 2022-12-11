@@ -16,9 +16,11 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     private final MeterRegistry meterRegistry;
     private final Map<String, Cart> shoppingCarts = new HashMap<>();
+    private final Counter checkoutCounter;
 
     NaiveCartImpl(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
+        this.checkoutCounter = meterRegistry.counter("checkouts");
     }
 
     @Override
@@ -35,9 +37,9 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
         return shoppingCarts.put(cart.getId(), cart);
     }
 
-    @Timed(value = "checkouts", extraTags = {"operation", "checkouts"})
     @Override
     public String checkout(Cart cart) {
+        checkoutCounter.increment();
         //meterRegistry.counter("checkouts").increment();
         shoppingCarts.remove(cart.getId());
         return UUID.randomUUID().toString();
@@ -60,14 +62,4 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
                     return total;
                 }).register(meterRegistry);
     }
-
-    /*
-    // @author Jim; I'm so proud of this one, took me one week to figure out !!!
-    public float total() {
-        return shoppingCarts.values().stream()
-                .flatMap(c -> c.getItems().stream()
-                        .map(i -> i.getUnitPrice() * i.getQty()))
-                .reduce(0f, Float::sum);
-    }
-     */
 }
