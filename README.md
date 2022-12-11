@@ -415,8 +415,8 @@ Se på ```provider.tf filen```.
 Et annet problem er at "terraform apply" bare blir kjørt hver gang noen lager en Pull request. Vi ønsker bare å kjøre apply når
 noen gjør en push mot main branch. 
 
-Fullfør workflow filen ```cloudwatch_dashboard.yml``` filen slik at apply bare bli kjørt på push mot main branch, og terraform plan   
-på når det lages en Pull request 
+* [x] Fullfør workflow filen ```cloudwatch_dashboard.yml``` filen slik at apply bare bli kjørt på push mot main branch, 
+* [ ] terraform plan på når det lages en Pull request 
 
 ### Oppgave 3
 
