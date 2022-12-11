@@ -52,7 +52,7 @@ resource "aws_cloudwatch_dashboard" "main" {
           [
             "${var.candidate_id}",
             "checkouts.count",
-            type: "increment"
+            "type": "increment"
           ]
         ],
         "period": 300,
