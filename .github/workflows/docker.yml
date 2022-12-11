@@ -1,4 +1,4 @@
-# Part 3 ex 3          
+# Part 3 ex 3
 name: Publish Docker image
 
 on:
