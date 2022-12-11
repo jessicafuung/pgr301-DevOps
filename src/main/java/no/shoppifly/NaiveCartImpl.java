@@ -15,8 +15,8 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     private final MeterRegistry meterRegistry;
     private final Map<String, Cart> shoppingCarts = new HashMap<>();
-    private LongAdder counter = new LongAdder();
-    //private AtomicInteger counter2 = new AtomicInteger();
+    //private LongAdder counter2 = new LongAdder();
+    private AtomicInteger counter = new AtomicInteger();
 
     NaiveCartImpl(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
@@ -38,8 +38,8 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
 
     @Override
     public String checkout(Cart cart) {
-        counter.increment();
-        //counter2.incrementAndGet();
+        //counter2.increment();
+        counter.incrementAndGet();
         shoppingCarts.remove(cart.getId());
         return UUID.randomUUID().toString();
     }
