@@ -35,7 +35,7 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
         return shoppingCarts.put(cart.getId(), cart);
     }
 
-    @Timed(value = "checkout_carts", extraTags = {"operation", "checkout_cart"})
+    @Timed(value = "checkouts", extraTags = {"operation", "checkouts"})
     @Override
     public String checkout(Cart cart) {
         //meterRegistry.counter("checkouts").increment();
