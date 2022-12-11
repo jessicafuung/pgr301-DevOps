@@ -1,3 +1,7 @@
+[![Java CI with Maven](https://github.com/jessicafuung/pgr301-DevOps/actions/workflows/ci.yml/badge.svg)](https://github.com/jessicafuung/pgr301-DevOps/actions/workflows/ci.yml)
+[![Publish Docker image](https://github.com/jessicafuung/pgr301-DevOps/actions/workflows/docker.yml/badge.svg)](https://github.com/jessicafuung/pgr301-DevOps/actions/workflows/docker.yml)
+[![Terraform CloudWatch](https://github.com/jessicafuung/pgr301-DevOps/actions/workflows/cloudwatch_dashboard.yml/badge.svg)](https://github.com/jessicafuung/pgr301-DevOps/actions/workflows/cloudwatch_dashboard.yml)
+
 # Eksamen PGR301 DevOps i skyen - Høst 2022
 Kandidat: 1044
 
