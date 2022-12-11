@@ -51,16 +51,16 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
         Gauge.builder("carts_count", shoppingCarts, Map::size)
                 .register(meterRegistry);
 
-        Gauge.builder("carts_totalValue", shoppingCarts, b -> {
-            float total = shoppingCarts.values().stream()
+        Gauge.builder("cartsvalue", shoppingCarts, b -> {
+            float total = b.values().stream()
                         .flatMap(c -> c.getItems().stream()
                                 .map(i -> i.getUnitPrice() * i.getQty()))
                         .reduce(0f, Float::sum);
                     return total;
-                })
-                .register(meterRegistry);
+                }).register(meterRegistry);
     }
 
+    /*
     // @author Jim; I'm so proud of this one, took me one week to figure out !!!
     public float total() {
         return shoppingCarts.values().stream()
@@ -68,4 +68,5 @@ class NaiveCartImpl implements CartService, ApplicationListener<ApplicationReady
                         .map(i -> i.getUnitPrice() * i.getQty()))
                 .reduce(0f, Float::sum);
     }
+     */
 }
