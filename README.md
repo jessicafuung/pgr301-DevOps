@@ -5,23 +5,6 @@
 # Eksamen PGR301 DevOps i skyen - Høst 2022
 Kandidat: 1044
 
-* [ ] Du kan jobbe i et public-, eller privat repo, og deretter gjøre det public noen timer etter innleveringsfrist hvis du er bekymret for plagiat fra medstudenter.
-
-## Utvikling i Cloud 9
-Hvis dere får følgende feilmelding når dere bygger koden med maven i Cloud9, må dere bare gjøre en "mvn clean"
-
-```text
-java.lang.Error: 
-Unresolved compilation problem: 
-        The method builder() is undefined for the type Cart
-        at no.shoppifly.CartServiceTest.shouldRemoveCartAfterCheckout(CartServiceTest.java:13)
-```
-
-### Bonusoppgave - 5 Poeng
-
-Vi fant aldi ut av hvorfor ovnernevnte problem oppstår av og til med Maven i Cloud9. Hvis du klarer å reprodusere feilen konsekvent
-og kan komme med en forklaring på hvorfor dette skjer, og hva vi kan gjøre for å fikse det, gis 5 ekstra poeng. 
-
 ## Del 1: DevOps-prinsipper
 
 Beskriv med egne ord;
@@ -111,10 +94,6 @@ Push til main, og et container image skal nå kunne pushes til DockerHub.
 6. I docker.yml filen tar vi bort workflowen som ble satt opp for å koble til DockerHub
 7. Setter inn ny workflow som kobler til ECR repositoryen (Se .github/workflows/docker.yml).
 
-## Del 4 - Metrics, overvåkning og alarmer
-### Oppgave 2
-* [ ] "checkout_latency" - Gjennomsnittlig responstid for Checkout metoden i Controller-klassen.
-
 ## Del 5 - Terraform og CloudWatch Dashboards
 Konsulentene i Gaffel consulting hadde ambisiøse planer om å få Terraform-koden i dette repoet til å kjøre
 i GitHub Actions. Workflowen kjørte bra første gang, men nå feiler den hver gang, og klager over at en bucket med samme navn allerede eksisterer.
@@ -150,9 +129,3 @@ Deretter la jeg inn backend i provideren, og flyttet eksisterende state til s3-b
 I oppgaveteksten står det *"et annet **problem** er at "terraform apply" bare blir kjørt hver  gang noen lager en Pull request."*,
 og videre i oppgaven står det *"terraform plan på når det lages en Pull request"*. Jeg tolket oppgaven som at det er ønskelig å
 kun kjøre terraform plan når det lages en pull request.
-
-### Alarmer
-Lag Terraform-kode som oppretter
-* [ ] En CloudWatch Alarm  som løses ut dersom antall handlekurver over tre repeternde perioder,på fem minutter, overstiger verdien 5
-* [ ] Alarmen skal sendes som e-post til en addresse som gis i workflow filen ```cloudwatch_dashboard.yml``` 
-
