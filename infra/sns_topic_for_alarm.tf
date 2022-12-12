@@ -18,7 +18,7 @@ resource "aws_sns_topic" "alarms" {
 resource "aws_sns_topic_subscription" "user_updates_sqs_target" {
   topic_arn = aws_sns_topic.alarms.arn
   protocol  = "email"
-  endpoint  = chfu003@student.kristiania.ni
+  endpoint  = "chfu003@student.kristiania.no"
 }
 
 resource "aws_sns_topic" "user_updates" {
