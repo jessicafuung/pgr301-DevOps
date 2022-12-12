@@ -113,11 +113,6 @@ Push til main, og et container image skal nå kunne pushes til DockerHub.
 
 ## Del 4 - Metrics, overvåkning og alarmer
 ### Oppgave 2
-Endre Javakoden slik at den rapporterer følgende Metrics til CloudWatch
-* [x] "carts" -  Antall handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget. (gauge)  
-  * carts_count.value
-* [x] "cartsvalue" - Total sum med penger i handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget. (gauge)
-* [ ] "checkouts" - Totalt antall  handlevogner er blitt sjekket ut (counts)
 * [ ] "checkout_latency" - Gjennomsnittlig responstid for Checkout metoden i Controller-klassen.
 
 ## Del 5 - Terraform og CloudWatch Dashboards
@@ -157,9 +152,6 @@ og videre i oppgaven står det *"terraform plan på når det lages en Pull reque
 kun kjøre terraform plan når det lages en pull request.
 
 ### Oppgave 3
-* [x] Fullfør cloudwatch_dashboard.tf slik at koden lager et CloudWatch Dashboard med *fire widgets*. Disse skal vise metrikkene fra oppgave 2, Del 4. 
-* [x] Antall handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget.
-* [x] Total sum med penger i handlekurver på et gitt tidspunkt i tid - verdien kan gå opp og ned ettersom kunder sjekker ut handlekurver og nye blir laget.
 * [ ] Totalt antall  handlevogner er blitt "sjekket ut" per time
 * [ ] Gjennomsnittlig responstid for Checkout metoden i Controller-klassen.
 
