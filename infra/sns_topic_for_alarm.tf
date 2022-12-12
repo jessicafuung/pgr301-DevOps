@@ -11,7 +11,7 @@ resource "aws_sns_topic_subscription" "user_updates_sqs_target" {
 resource "aws_cloudwatch_metric_alarm" "over5" {
   alarm_name                = "carts-over-5"
   namespace                 = var.candidate_id
-  metric_name               = "carts_count.value"
+  metric_name               = "carts.value"
 
   comparison_operator       = "GreaterThanThreshold"
   threshold                 = "5"
