@@ -29,7 +29,7 @@ Beskriv med egne ord;
 *Spørsmål: Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?*
 
 **Svar**\
-En av utfordringene med dagens systemutviklingsprosess er at de kun deployer koden èn gang i kvartalet. Dette fører til forsinkelser i å levere ny funksjonalitet til kundene. I tillegg er det tydelig at de ofte oppstår feil når de deployer, som igjen fører til ytterligere forsinkelser og mangel på stabilitet i produksjonsmiljøet deres. 
+En av utfordringene med dagens systemutviklingsprosess er at de kun deployer koden èn gang i kvartalet. Dette fører til forsinkelser i å levere ny funksjonalitet til kundene. I tillegg er det tydelig at de ofte oppstår feil når de deployer, som igjen fører til ytterligere forsinkelser og mangel på stabilitet i produksjonsmiljøet deres. Dette kan også kalles for waste.
 
 Innføring av DevOps-prinsipper kan hjelpe å løse de nevnte utfordringene. Et utgangspunkt kan være ved å implementere kontinuerlig integrasjon og kontinuerlig levering (CI/ CD). Da kan selskapet deploye kode oftere, og kode med høyere kvalitet. Dette kan også bidra til å redusere forsinkelser i leveransen av ny funksjonalitet, samt øke stabiltiet i produksjonsmiljøet deres.
 
@@ -150,10 +150,6 @@ Deretter la jeg inn backend i provideren, og flyttet eksisterende state til s3-b
 I oppgaveteksten står det *"et annet **problem** er at "terraform apply" bare blir kjørt hver  gang noen lager en Pull request."*,
 og videre i oppgaven står det *"terraform plan på når det lages en Pull request"*. Jeg tolket oppgaven som at det er ønskelig å
 kun kjøre terraform plan når det lages en pull request.
-
-### Oppgave 3
-* [ ] Totalt antall  handlevogner er blitt "sjekket ut" per time
-* [ ] Gjennomsnittlig responstid for Checkout metoden i Controller-klassen.
 
 ### Alarmer
 Lag Terraform-kode som oppretter
