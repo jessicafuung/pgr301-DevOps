@@ -1,5 +1,5 @@
 resource "aws_sns_topic" "alarms" {
-  alarm_name = "alarm-topic-${var.candidate_id}"
+  name = "alarm-topic-${var.candidate_id}"
 }
 
 resource "aws_sns_topic_subscription" "user_updates_sqs_target" {
