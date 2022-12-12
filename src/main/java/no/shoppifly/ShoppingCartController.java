@@ -9,12 +9,10 @@ import java.util.List;
 @RestController()
 public class ShoppingCartController {
 
-    private final MeterRegistry meterRegistry;
     private final CartService cartService;
 
     @Autowired
-    public ShoppingCartController(MeterRegistry meterRegistry, CartService cartService) {
-        this.meterRegistry = meterRegistry;
+    public ShoppingCartController(CartService cartService) {
         this.cartService = cartService;
     }
 
@@ -24,7 +22,7 @@ public class ShoppingCartController {
     }
 
     @PostMapping(path = "/cart/checkout")
-    @Timed(value = "checkout_latency")
+    @Timed
     public String checkout(@RequestBody Cart cart) {
         return cartService.checkout(cart);
     }
