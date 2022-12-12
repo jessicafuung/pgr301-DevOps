@@ -51,10 +51,10 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "checkouts.value"
+            "checkouts.value / (300 / 3600)"
           ]
         ],
-        "period": 3600,
+        "period": 300,
         "stat": "Maximum",
         "region": "eu-west-1",
         "title": "Total checkouts"
