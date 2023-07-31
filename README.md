@@ -4,6 +4,7 @@
 
 # Eksamen PGR301 DevOps i skyen - Høst 2022
 Kandidat: 1044
+
 Karakter: B 
 
 ## Scenario
