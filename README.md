@@ -5,6 +5,27 @@
 # Eksamen PGR301 DevOps i skyen - Høst 2022
 Kandidat: 1044
 
+Karakter: B 
+
+## Scenario
+Som DevOps-ekspert, ferdig utlært fra Høgskolen Kristiania blir du ansatt i en bedrift, "Shopifly" som selger droner, men også andre varer nå som det nærmer seg jul.
+
+Shopifly har store utfordringer med utviklingsprosessen sin
+
+De deployer kode første mandag i kvartalet.
+
+De pleide å deploye oftere før- men dette førte til ustabilitet. Selskapet ansatte flere testere, og startet en prosess der utviklingsledere måtte se over og godkjenne alle leveranser. De senket samtidig frekvensen på leveransene sine for å få bedre stabilitet.
+
+Når de deployer, feiler det fortsatt ofte. Da ruller de tilbake til forrige versjon, og ny funksjonalitet blir derfor ofte forsinket i månedsvis
+
+Leveransen skjer ved at Utviklingsteamet bruker FTP til å overføre en Spring boot JAR sammen med dokumentasjon i en ZIP. En egen avdeling tar i mot disse filene og installerer i AWS / Produksjon.
+
+For å løse problemene sine, leide selskapet så inn DevOps-kompetanse fra Gaffel Consulting. Etter å ha sendt fire juniorkonsulenter som fakturerte for en liten formue ble det klart at de aldri kom til å klare å levere, og kontrakten ble sagt opp. "Jim" den "mest senior" av juniorkonsulentene har lagt inn noen kommentarer i koden som kan være til hjelp.
+
+Det Gaffel Consulting klarte å levere på den medgåtte tiden ligger i dette repositoryet.
+
+Nå er det din tur til å ta over!
+
 ## Del 1: DevOps-prinsipper
 
 Beskriv med egne ord;
